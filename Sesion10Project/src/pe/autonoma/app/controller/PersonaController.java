@@ -38,7 +38,14 @@ public class PersonaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Obtenemos directamente por metodo get la indicación para ver la vista "listaPersonas.jsp"
+		Persona tempPersona = new Persona(request.getParameter("nombres"),);
+		
+		boolean result = new PersonaModel().insertarPersona(dataSource,tempPersona);
+		
+		System.out.println(result);
+		
 		String pages = request.getParameter("page");
+		
 		
 		if(pages.equals("lista")){
 			List<Persona> listPersonas = new ArrayList<>();
